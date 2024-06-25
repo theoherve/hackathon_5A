@@ -1,7 +1,9 @@
 export const userService = {
   async fetchAll() {
-    return fetch("/api/users").catch((err) => {
-      console.log(err);
-    });
+     const result = fetch("/api/users").then(res => res.json()).catch((err) => {
+       console.log(err);
+     });
+     console.log(result);
+    return result;
   },
 };

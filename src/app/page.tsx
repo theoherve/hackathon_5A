@@ -1,36 +1,14 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, Modal, Table, Tooltip, Row, Col } from 'antd';
-import Image from "next/image"
+import { Modal, Table, Tooltip } from 'antd';
 import Header from "@/app/ui/Header";
-
-// const Header = () => (
-//   <div></div>
-//   // <Row justify="space-around" align="middle" style={{ marginBottom: '20px' }}>
-//   //   <Col>
-//   //     <Menu.Item style={{borderRight: '1px solid #f0f0f0'}}>
-//   //       <Image
-//   //         src="/CALMEDICA_LOGO.png"
-//   //         width={100}
-//   //         height={40}
-//   //         alt="Calmedica logo"
-//   //       />
-//   //     </Menu.Item>
-//   //   </Col>
-//   //   <Col>
-//   //     <Menu mode="horizontal">
-//   //       <Menu.Item key="patients">Afficher les patients</Menu.Item>
-//   //       <Menu.Item key="waiting">Liste d&apos;attente</Menu.Item>
-//   //       <Menu.Item key="report">Rapport</Menu.Item>
-//   //       <Menu.Item key="dashboard">Tableau de bord</Menu.Item>
-//   //       <Menu.Item key="permissions">Autorisations</Menu.Item>
-//   //     </Menu>
-//   //   </Col>
-//   // </Row>
-// );
+import {useQuery} from "@tanstack/react-query";
+import {userService} from "../../services/user";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const { data, isLoading, error } = useQuery({queryKey: ['users'], queryFn: userService.fetchAll});
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -46,9 +24,9 @@ const App = () => {
 
   const columns = [
     {
-      title: 'Boule',
-      dataIndex: 'boule',
-      key: 'boule',
+      title: 'Pastille',
+      dataIndex: 'state',
+      key: 'state',
       render: (text: string, record: any) => (
         <>
           <Tooltip title={text}>
@@ -68,83 +46,51 @@ const App = () => {
         </>
       ),
     },
-    { title: 'Étape', dataIndex: 'etape', key: 'etape' },
+    { title: 'État', dataIndex: 'state', key: 'state' },
     { title: 'Protocole', dataIndex: 'protocole', key: 'protocole' },
-    { title: 'Tel portable', dataIndex: 'tel', key: 'tel' },
+    { title: 'Téléphone', dataIndex: 'phoneNumber', key: 'phoneNumber' },
     { title: 'Suivi SMS', dataIndex: 'sms', key: 'sms' },
     { title: 'Date de référence', dataIndex: 'dateRef', key: 'dateRef' },
-    { title: 'Etat', dataIndex: 'etat', key: 'etat' },
     { title: 'Numéro d\'opération', dataIndex: 'numOp', key: 'numOp' },
-    { title: 'Nom', dataIndex: 'nom', key: 'nom' },
-    { title: 'Prénom', dataIndex: 'prenom', key: 'prenom' },
+    { title: 'Nom', dataIndex: 'lastname', key: 'lastname' },
+    { title: 'Prénom', dataIndex: 'firstname', key: 'firstname' },
     { title: 'IPP', dataIndex: 'ipp', key: 'ipp' },
     { title: 'Date de naissance', dataIndex: 'dateNaissance', key: 'dateNaissance' },
     { title: 'Médecin', dataIndex: 'medecin', key: 'medecin' },
   ];
 
-  const data = [
-    {
-      boule: 'Saignement important !',
-      bouleColor: '#ff0000',
-      etape: '1',
-      protocole: 'Protocole 1',
-      tel: '06 12 34 56 78',
-      sms: 'Oui',
-      dateRef: '01/01/2021',
-      etat: 'En attente',
-      numOp: '123456',
-      nom: 'Doe',
-      prenom: 'John',
-      ipp: '123456789',
-      dateNaissance: '01/01/1970',
-      medecin: 'Dr. Smith',
-    },
-    {
-      boule: 'Tout va bien !',
-      bouleColor: '#00ff00',
-      etape: '2',
-      protocole: 'Protocole 2',
-      tel: '06 12 34 56 78',
-      sms: 'Oui',
-      dateRef: '01/01/2021',
-      etat: 'En attente',
-      numOp: '123456',
-      nom: 'Doe',
-      prenom: 'Jane',
-      ipp: '123456789',
-      dateNaissance: '01/01/1970',
-      medecin: 'Dr. Smith',
-    },
-    {
-      boule: 'Attention à ce patient à surveiller',
-      bouleColor: '#0000ff',
-      etape: '3',
-      protocole: 'Protocole 3',
-      tel: '06 12 34 56 78',
-      sms: 'Oui',
-      dateRef: '01/01/2021',
-      etat: 'En attente',
-      numOp: '123456',
-      nom: 'Doe',
-      prenom: 'Alice',
-      ipp: '123456789',
-      dateNaissance: '01/01/1970',
-      medecin: 'Dr. Smith',
-    },
-  ];
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  const DataTable = () => {
-    return (
-      <div className="px-4">
-        <Table columns={columns} dataSource={data} />
-      </div>
-    )
-  };
+  if (error) {
+    return <div>An error has occurred: {error.message}</div>;
+  }
+
+  if (data) {
+    data.forEach((user: any) => {
+      switch (user.state) {
+        case 'danger':
+          user.bouleColor = 'red';
+          break;
+        case 'alert':
+          user.bouleColor = 'orange';
+          break;
+        case 'problem':
+          user.bouleColor = 'yellow';
+          break;
+        case 'ok':
+          user.bouleColor = 'green';
+      }
+    });
+  }
 
   return (
     <div className="h-dvh">
       <Header />
-      <DataTable />
+      <div className="px-4">
+        <Table columns={columns} dataSource={data}/>
+      </div>
     </div>
   );
 };
