@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from "next/image"
 import Link from 'next/link';
 import { FaCog, FaCaretDown } from 'react-icons/fa';
 
@@ -8,7 +9,7 @@ export default function Header() {
     return (
         <header className='flex flex-row justify-between bg-black text-white text-sm'>
             <div className='flex items-center ml-6 gap-10'>
-                <img src="/CALMEDICA_LOGO.png" className='w-40 h-16 object-contain' />
+                <Image src="/CALMEDICA_LOGO.png" width={120} height={40} className='w-40 h-16 object-contain'  alt="Calmedica logo"/>
                 <p className='flex items-center gap-1 hover:text-orange-500 cursor-pointer'>Aide <FaCaretDown /></p>
             </div>
             <nav className='flex justify-center items-center gap-6 mr-1'>

@@ -1,12 +1,14 @@
 import '@/app/globals.css';
 import React from 'react';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import Providers from "@/app/Components/Providers";
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (
   <html lang="en">
-    <body>
-      <AntdRegistry>{children}</AntdRegistry>
-    </body>
+      <body>
+          <Providers>
+            {children}
+          </Providers>
+      </body>
   </html>
 );
 

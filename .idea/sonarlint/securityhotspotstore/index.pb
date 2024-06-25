@@ -30,3 +30,17 @@ I
 src/app/api/user/route.ts,b/c/bc6cf571fc3c66bfec992f3e6340b576bed8aab0
 E
 src/app/ui/Header.tsx,0/4/04241645f683dac86737dc829ea4c861e6aff374
+J
+src/app/api/users/route.ts,6/9/69e4f81a1220549961d72f367a96b71088e50ffe
+@
+services/user.ts,4/0/4052a9f0607419b7e110fe860ce01ee4f6325f9c
+Z
+*src/app/Components/QueryClientProvider.tsx,e/6/e6719eb265fdae11ed62f3d550c6e3a0f754b685
+P
+ src/app/Components/Providers.tsx,3/a/3a092c7893630391622fe1d19bf912bc4db74f7e
+>
+.eslintrc.json,7/1/71c20a341bfe32aa5cd5b4384e94f942bab6a7d3
+?
+scripts/seed.js,c/8/c8d02974cd7a0ed1a6791106a46e94ce13f4b221
+D
+prisma/schema.prisma,1/8/187e4a6f168cf143dde68ce28a29ae08ce9b9578
