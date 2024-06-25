@@ -27,28 +27,22 @@ async function main() {
     { lastname: 'Arh dit', firstname: 'Alexandre', phoneNumber: '0603456789', createdAt: new Date('2023-01-25T14:55:10Z'), updatedAt: new Date('2023-04-30T09:20:30Z') },
   ];
 
-  for (const user of users) {
+  for (const index in users) {
     const createdUser = await prisma.user.create({
-      data: user,
+      data: users[index],
     });
 
-    const randomMessage = messagesData[Math.floor(Math.random() * messagesData.length)];
+    const messages = messagesData[index];
 
-    await prisma.message.create({
-      data: {
-        content: randomMessage.question,
-        fromUser: false,
-        userId: createdUser.id,
-      },
-    });
-
-    await prisma.message.create({
-      data: {
-        content: randomMessage.response,
-        fromUser: true,
-        userId: createdUser.id,
-      },
-    });
+    for(const message of messages) {
+      await prisma.message.create({
+        data: {
+          content: message.content,
+          fromUser: message === 'patient',
+          userId: createdUser.id,
+        },
+      });
+    }
   }
 
   console.log(`Inserted ${users.length} users and their messages`);
