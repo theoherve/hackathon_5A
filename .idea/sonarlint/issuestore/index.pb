@@ -12,12 +12,8 @@ B
 src/app/page.tsx,3/3/3393394e21dbac7686e91ad17c5283fb052d67f3
 B
 src/app/layout.tsx,c/f/cfb47de6ae0cae626eed46461300112ef521d977
-B
-tailwind.config.ts,5/2/52c961376029165b06e7861b1dc68c3b2455eeff
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-B
-postcss.config.mjs,a/a/aaf1cf9fa3c8ee0e6c766e4a626ddaf9bc1cbb40
 A
 postcss.config.js,3/f/3f70684581fd16ab3be77ca959e0138ef3ee8bfb
 B
@@ -26,16 +22,12 @@ C
 src/app/globals.css,d/a/da1d6f21d01d0f36b5501dffcf7fd160ffcb290d
 =
 tsconfig.json,6/1/61ebb9fd6e8cf9082658121d5d81e297791dacd0
-I
-src/app/api/user/route.ts,b/c/bc6cf571fc3c66bfec992f3e6340b576bed8aab0
 E
 src/app/ui/Header.tsx,0/4/04241645f683dac86737dc829ea4c861e6aff374
 J
 src/app/api/users/route.ts,6/9/69e4f81a1220549961d72f367a96b71088e50ffe
 @
 services/user.ts,4/0/4052a9f0607419b7e110fe860ce01ee4f6325f9c
-Z
-*src/app/Components/QueryClientProvider.tsx,e/6/e6719eb265fdae11ed62f3d550c6e3a0f754b685
 P
  src/app/Components/Providers.tsx,3/a/3a092c7893630391622fe1d19bf912bc4db74f7e
 >
@@ -44,3 +36,5 @@ P
 scripts/seed.js,c/8/c8d02974cd7a0ed1a6791106a46e94ce13f4b221
 D
 prisma/schema.prisma,1/8/187e4a6f168cf143dde68ce28a29ae08ce9b9578
+S
+#src/app/Components/PatientState.tsx,f/2/f2f6808416892103a00098a5ca5f2fae3472f94d

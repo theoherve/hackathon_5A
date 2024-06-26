@@ -16,7 +16,7 @@ import {
 
 export default function Header() {
   return (
-    <header className="flex flex-col bg-black text-white text-sm">
+    <header className="flex flex-col bg-neutral-300 text-white text-sm">
       <Image
         src="/CALMEDICA_LOGO.png"
         width={120}
