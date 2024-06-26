@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/app/ui/Header";
 import { useQuery } from "@tanstack/react-query";
 import { Table } from "antd";
 import { userService } from "../../services/user";
@@ -74,11 +73,8 @@ const App = () => {
   }
 
   return (
-    <div className="h-dvh">
-      <Header />
-      <div className="px-4">
-        <Table columns={columns} dataSource={data} />
-      </div>
+    <div>
+      <Table columns={columns} dataSource={data} />
     </div>
   );
 };
