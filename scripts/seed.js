@@ -38,7 +38,7 @@ async function main() {
       await prisma.message.create({
         data: {
           content: message.content,
-          fromUser: message === 'patient',
+          fromUser: message.fromUser === 'patient',
           userId: createdUser.id,
         },
       });
