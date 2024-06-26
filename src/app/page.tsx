@@ -5,6 +5,7 @@ import Header from "@/app/ui/Header";
 import {useQuery} from "@tanstack/react-query";
 import {userService} from "../../services/user";
 import PatientState from './Components/PatientState';
+import PatientMessages from './Components/PatientMessage';
 
 const App = () => {
   const { data, isLoading, error } = useQuery({queryKey: ['users'], queryFn: userService.fetchAll});
@@ -29,6 +30,14 @@ const App = () => {
     { title: 'IPP', dataIndex: 'ipp', key: 'ipp' },
     { title: 'Date de naissance', dataIndex: 'dateNaissance', key: 'dateNaissance' },
     { title: 'Médecin', dataIndex: 'medecin', key: 'medecin' },
+    {
+      title: 'Messages',
+      dataIndex: 'messages',
+      key: 'messages',
+      render: (text: string, record: any) => (
+        <PatientMessages text={text} record={record}/>
+      ),
+    },
   ];
 
   if (isLoading) {
