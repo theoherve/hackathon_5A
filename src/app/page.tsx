@@ -4,23 +4,10 @@ import { Modal, Table, Tooltip } from 'antd';
 import Header from "@/app/ui/Header";
 import {useQuery} from "@tanstack/react-query";
 import {userService} from "../../services/user";
+import PatientState from './Components/PatientState';
 
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const { data, isLoading, error } = useQuery({queryKey: ['users'], queryFn: userService.fetchAll});
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
 
   const columns = [
     {
@@ -28,22 +15,7 @@ const App = () => {
       dataIndex: 'state',
       key: 'state',
       render: (text: string, record: any) => (
-        <>
-          <Tooltip title={text}>
-            <div style={{
-              height: '20px',
-              width: '20px',
-              borderRadius: '50%',
-              backgroundColor: record.bouleColor,
-            }} onClick={showModal}/>
-          </Tooltip>
-
-          <Modal title="Basic Modal" visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
-        </>
+        <PatientState text={text} record={record}/>
       ),
     },
     { title: 'État', dataIndex: 'state', key: 'state' },

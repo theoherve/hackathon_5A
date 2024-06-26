@@ -8,6 +8,8 @@ export async function POST(request: Request) {
 
   const body = await request.json();
 
+  console.log('ICI')
+
   const chatResponse = await client.chat({
     model: 'mistral-large-latest',
     messages: [
@@ -17,12 +19,12 @@ export async function POST(request: Request) {
       },
       {
         role: 'user',
-        content: body.message,
+        content: JSON.stringify(body.message),
       },
     ],
   });
 
   console.log('Chat:', chatResponse.choices[0].message.content);
 
-  return NextResponse.json({ msg: chatResponse.choices[0].message.content })
+  return NextResponse.json({ msg: JSON.parse(chatResponse.choices[0].message.content) })
 }
