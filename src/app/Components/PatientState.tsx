@@ -91,7 +91,15 @@ function PatientState (props: PatientStateProps) {
           {audioMutation.isSuccess && audioMutation.data && (
             <>
               <p className="mt-2 font-bold">Transciption d'un fichier audio existant</p>
-              <p className="text-justify">{audioMutation.data.msg}</p>
+              <div className="text-justify mt-2">
+                {audioMutation.data.msg.map((dialogue: any, index: number) => (
+                  <div key={index} className="mb-3">
+                    {Object.keys(dialogue).map((key, idx) => (
+                      <p key={idx}><strong>{key}:</strong> {dialogue[key]}</p>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </>
           )}
         </div>
