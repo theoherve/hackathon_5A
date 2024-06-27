@@ -1,5 +1,17 @@
 [
   [
+      { "content": "Bonjour Docteur, j'ai subi une opération de la main la semaine dernière et je ressens encore beaucoup de douleur.", "fromUser": "patient" },
+      { "content": "Bonjour, c'est normal d'avoir encore un peu de douleur après une opération. Pouvez-vous évaluer la douleur sur une échelle de 1 à 10 ?", "fromUser": "medecin" },
+      { "content": "Je dirais que c'est environ un 7.", "fromUser": "patient" },
+      { "content": "Avez-vous suivi les recommandations post-opératoires, comme prendre vos médicaments contre la douleur et éviter d'utiliser votre main ?", "fromUser": "medecin" },
+      { "content": "Oui, j'ai pris mes médicaments et j'ai essayé de ne pas trop utiliser ma main, mais c'est difficile avec mon travail.", "fromUser": "patient" },
+      { "content": "Il est important de donner à votre main le temps de guérir correctement. Je vous conseille de continuer à prendre vos médicaments comme prescrit et d'essayer de limiter l'utilisation de votre main autant que possible.", "fromUser": "medecin" },
+      { "content": "D'accord, je vais essayer de faire plus attention. Merci Docteur.", "fromUser": "patient" },
+      { "content": "De rien. Si la douleur ne diminue pas dans les prochains jours ou si vous remarquez des signes d'infection, comme une rougeur ou un gonflement accru, revenez me voir immédiatement.", "fromUser": "medecin" },
+      { "content": "Je comprends, merci pour vos conseils. Bonne journée !", "fromUser": "patient" },
+      { "content": "Bonne journée à vous aussi et bon rétablissement !", "fromUser": "medecin" }
+  ],
+  [
       { "content": "Bonjour Docteur, j'ai des maux de tête persistants.", "fromUser": "patient" },
       { "content": "Bonjour, depuis combien de temps avez-vous ces maux de tête ?", "fromUser": "medecin" },
       { "content": "Depuis trois jours maintenant.", "fromUser": "patient" },
