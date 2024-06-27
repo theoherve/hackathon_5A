@@ -18,3 +18,17 @@ export async function POST(request: Request) {
 
   return NextResponse.json(services);
 }
+
+export async function PUT(request: Request) {
+  const body = await request.json();
+  const services = await prisma.categorie.update({
+    where: {
+      name: body.name,
+    },
+    data: {
+      isActive: body.isActive,
+    },
+  });
+
+  return NextResponse.json(services);
+}

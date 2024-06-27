@@ -10,9 +10,9 @@ export async function POST(request: Request) {
           Je vais te donner un JSON, avec un tableau contenant des message de clients dans le milieu de la santé. 
           Peux tu analyser le message pour me dire si le message parle d'une des catégories, 
           et noter cette catégorie. Je veux que tu me retourne le résultat sous forme de JSON, 
-          avec comme clefs chaque categories, et en valeur un tableau avec deux valeurs, 
-          le nombre de retour positif et negitif. Si une réponse n'indique rien de spécial, 
-          fait une catégorie spéciale nommé 'none' pour ce qui ne rentre dans aucune catégorie. 
+          avec comme clefs chaque categories, et en valeur un objet avec deux valeurs, nommé 'positive' et 'negative', 
+          la premiere valeur correspond au retour positif, et la deuxieme au negitif. Si une réponse n'indique rien de spécial, 
+          fait une catégorie spéciale nommé 'none' pour ce qui ne rentre dans aucune catégorie. Dans la categorie 'none', tu mettras une seule valeur, directement la valeur en nombre.
           Ne fourni jamais d'autre contexte que l'objet json. Pas de parole, je dois pouvoir parser ton message.`;
 
   const chatResponse = await client.chat({
