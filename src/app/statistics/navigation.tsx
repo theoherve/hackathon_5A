@@ -4,6 +4,7 @@ import {
   ProductOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
+import { Categorie } from "@prisma/client";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 
@@ -30,10 +31,12 @@ const Navigation = ({
       key: "sub2",
       icon: <ProductOutlined />,
       label: "Service",
-      children: categories?.map((value: any) => ({
-        key: value.name,
-        label: value.name,
-      })),
+      children: categories
+        ?.filter((value: Categorie) => value.isActive)
+        .map((value: Categorie) => ({
+          key: value.name,
+          label: value.name,
+        })),
     },
     {
       key: "sub3",

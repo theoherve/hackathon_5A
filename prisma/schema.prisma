@@ -38,7 +38,7 @@ model Message {
 
 model Categorie {
   id        Int      @id @default(autoincrement())
-  name      String
+  name      String   @unique
   isActive  Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

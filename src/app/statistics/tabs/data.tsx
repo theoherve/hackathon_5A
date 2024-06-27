@@ -1,19 +1,16 @@
+import { Message } from "@prisma/client";
 import type { TableProps } from "antd";
 import { Table } from "antd";
 
-interface DataType {
+interface DataType extends Message {
   key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
 }
 
 const columns: TableProps<DataType>["columns"] = [
   {
     title: "Message concerné",
-    dataIndex: "age",
-    key: "age",
+    dataIndex: "content",
+    key: "content",
   },
   {
     title: "Categorie(s)",
@@ -27,10 +24,8 @@ const columns: TableProps<DataType>["columns"] = [
   },
 ];
 
-const data: DataType[] = [];
-
-const Data = () => {
-  return <Table columns={columns} dataSource={data} />;
+const Data = ({ messages }: { messages: DataType[] }) => {
+  return <Table columns={columns} dataSource={messages} />;
 };
 
 export default Data;
