@@ -27,12 +27,10 @@ type Message = {
 const PatientMessages = (props: PatientMessagesProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { text, record } = props;
+  const { record } = props;
 
   const showModal = () => {
-    setIsModalOpen(true);
-    console.log(record.messages);
-    
+    setIsModalOpen(true);    
   };
 
   const handleOk = () => {

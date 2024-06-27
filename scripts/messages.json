@@ -12,6 +12,20 @@
       { "content": "Bonne journée à vous aussi et bon rétablissement !", "fromUser": "medecin" }
   ],
   [
+    { "content": "Bonjour, ici le service de messagerie de l'hôpital. Nous souhaitons recueillir vos impressions suite à votre récente intervention à la gorge. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité de votre chambre d'hôpital?", "fromUser": "medecin" },
+    { "content": "Je dirais 8.", "fromUser": "patient" },
+    { "content": "Merci. Sur une échelle de 1 à 10, comment évalueriez-vous la qualité de votre opération?", "fromUser": "medecin" },
+    { "content": "9, tout s'est bien passé.", "fromUser": "patient" },
+    { "content": "C'est excellent à entendre. Sur une échelle de 1 à 10, comment évalueriez-vous les soins post-opératoires?", "fromUser": "medecin" },
+    { "content": "7, ils étaient bons mais pourraient être un peu plus attentifs.", "fromUser": "patient" },
+    { "content": "Merci pour vos retours. Avez-vous des douleurs ou des préoccupations concernant votre récupération?", "fromUser": "medecin" },
+    { "content": "Non, tout va bien pour l'instant.", "fromUser": "patient" },
+    { "content": "Très bien. Si vous avez besoin de quoi que ce soit ou avez d'autres questions, n'hésitez pas à nous contacter. Bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
       { "content": "Bonjour Docteur, j'ai des maux de tête persistants.", "fromUser": "patient" },
       { "content": "Bonjour, depuis combien de temps avez-vous ces maux de tête ?", "fromUser": "medecin" },
       { "content": "Depuis trois jours maintenant.", "fromUser": "patient" },
