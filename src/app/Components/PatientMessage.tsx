@@ -2,6 +2,7 @@
 
 import { Modal, Input, Button } from "antd";
 import { useState } from "react";
+import { SendOutlined } from '@ant-design/icons';
 
 type Message = {
     content: string;
@@ -51,25 +52,30 @@ const PatientMessages = (props: PatientMessagesProps) => {
       </div>
 
       <Modal title={`${record.ipp} | ${record.firstname} ${record.lastname}`} width={650}  visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <div className="overflow-y-auto h-96 mb-2">
+        <div className="overflow-y-auto h-96 mb-2 pr-1">
           {record.messages.map((message, index) => (
-            <div key={index} className={`w-2/3 my-6 flex ${message.fromUser ? 'justify-end' : 'justify-start'}`}>
+            <div key={index} className={`my-6 flex ${message.fromUser ? 'justify-end' : 'justify-start'}`}>
             <div
-              className={`p-4 rounded-lg ${message.fromUser ? 'bg-orange-600 self-start' : 'bg-gray-200 self-end'} max-w-4/5`}
+              className={`flex flex-col ${message.fromUser ? 'self-start' : 'self-end'}`}
             >
-              <p className="mb-1">{message.content}</p>
-              <small className="text-gray-500">
+              <p className={`flex flex-col max-w-96 p-4 rounded-lg ${message.fromUser ? 'bg-orange-600 self-start' : 'bg-gray-200 self-end'} max-w-4/5`}>{message.content}</p>
+              <small className={`text-gray-500 ${message.fromUser ? 'self-end' : 'self-start'} `}>
                     {message.fromUser ?  new Date(message.createdAt).toLocaleString() : `Reçu : ${new Date(message.createdAt).toLocaleString()}`}
-                </small>
+              </small>
             </div>
           </div>
           ))}
         </div>
-        <Input
-            className="h-16"
-          placeholder="Écrire un nouveau message..."
-          value=""
-        />
+        <div className="flex flex-row gap-3 items-center justify-center">
+          <Input
+              className="h-12 mr-2"
+              style={{ border: '2px solid black' }}
+            placeholder="Écrire un nouveau message..."
+            value=""
+          />
+          <Button style={{ background: "rgb(234 88 12)" }} key="submit" type="primary" icon={<SendOutlined />} shape="round" />
+        </div>
+        
       </Modal>
     </>
   );
