@@ -1,10 +1,8 @@
 import MistralClient from "@mistralai/mistralai";
 import { NextResponse } from "next/server";
 
-const API_KEY = "JGPhvJcqUDYnioiItww3viBMNUj0aqP1";
-
 export async function POST(request: Request) {
-  const client = new MistralClient(API_KEY);
+  const client = new MistralClient(process.env.MISTRAL_API_KEY);
 
   const body = await request.json();
 

@@ -65,7 +65,7 @@ const StatisticsPage = () => {
       <div className="flex gap-4 mt-8 h-full">
         <Navigation handleChange={handleChange} categories={categories} />
         {isLoading && <div>Chargement...</div>}
-        {data && (
+        {data && categories && (
           <div className="flex-1">
             {page === "sub1" && <General data={data} />}
             {categories.map((value: any) => (

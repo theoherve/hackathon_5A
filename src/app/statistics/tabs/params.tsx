@@ -4,8 +4,7 @@ import { useState } from "react";
 const Params = ({ categories }: { categories: any }) => {
   const [options, setOptions] = useState(
     categories?.map((value: any) => {
-      value: value.name;
-      label: value.name;
+      return { value: value.name, label: value.name };
     }) || []
   );
 
