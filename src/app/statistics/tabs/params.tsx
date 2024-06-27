@@ -1,21 +1,13 @@
 import { Select } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Params: React.FC = () => {
-  const [options, setOptions] = useState([
-    {
-      value: "Restauration",
-      label: "Restauration",
-    },
-    {
-      value: "Personnel",
-      label: "Personnel",
-    },
-    {
-      value: "Accueil",
-      label: "Accueil",
-    },
-  ]);
+const Params = ({ categories }: { categories: any }) => {
+  const [options, setOptions] = useState(
+    categories?.map((value: any) => {
+      value: value.name;
+      label: value.name;
+    }) || []
+  );
 
   const handleChange = (value: string) => {
     setOptions([...options, { value, label: value }]);
