@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import { Button, Modal, Tag, Tooltip } from "antd";
+import { Button, Modal, Tag } from "antd";
 import {useMutation} from "@tanstack/react-query";
 import { mistralService } from "../../../services/mistral";
 import { openaiService } from "../../../services/openai";

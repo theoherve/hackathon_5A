@@ -1,6 +1,6 @@
 "use client";
 import React, {useRef, useState} from 'react';
-import {Modal, Table, Tour} from 'antd';
+import {Modal, Table, Tour, Tooltip} from 'antd';
 import type { TourProps } from 'antd';
 import {ArrowUpOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
@@ -68,10 +68,12 @@ const App = () => {
   const columns = [
     {
       title: () => (
-        <div className="flex items-center gap-2" ref={ref1}>
-          <div>Catégorie</div>
-          <QuestionCircleOutlined onClick={() => setOpenTuto(true)} className="cursor-pointer" />
-        </div>
+          <div className="flex items-center gap-2" ref={ref1}>
+            <div>Catégorie</div>
+            <Tooltip title="Ouvrir le tutoriel">
+              <QuestionCircleOutlined onClick={() => setOpenTuto(true)} className="cursor-pointer" />
+            </Tooltip>
+          </div>
       ),
       dataIndex: 'state',
       key: 'state',
