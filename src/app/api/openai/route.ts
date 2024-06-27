@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     messages: [
       {
         role: 'system',
-        content: 'Tu es un assistant médicale. Je vais te donner une conversation en texte brute entre un patient et le service de messagerie. Tu dois construire tableau d\'objet JSON. Si le premier à entamer le dialogue est l\'infirmier alors l\'objet JSON est au format {Infirmier : string, Patient: string }, sinon si c\'est le patient qui entame la conversation alors le l\'objet JSON est au format {Patient : string, Infirmier: string }. Donc chaque objet JSON est une ligne de dialogue en string et la réponse à cette ligne de dialogue en string. Ne fournis jamais d\'autre contexte que le tableau d\'objet JSON.',
+        content: 'Tu es un assistant médicale. Je vais te donner une conversation en texte brute entre un patient et le service de messagerie. Tu dois analyser le text et me fournir un objet JSON sous cette forme { resume: string, keywords: string[] }. Le resume est un résumé du texte fourni afin d\'aider l\'infermière qui va appeler le patient et les keywords sont les mots clés du texte. Ne fournis jamais d\'autre contexte que l\'objet JSON.'
       },
       {
         role: 'user',
