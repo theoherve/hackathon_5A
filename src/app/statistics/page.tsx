@@ -16,17 +16,22 @@ import ServiceTemplate from "./tabs/serviceTemplate";
 const StatisticsPage = () => {
   const [page, setPage] = useState("sub1");
 
-  const { data: categories } = useQuery({
+  const { data: categories, refetch: refetchCategories } = useQuery({
     queryKey: ["categories"],
     queryFn: categorieService.fetchAll,
   });
 
-  const { data: messages } = useQuery({
+  const { data: messages, refetch: refetchMessages } = useQuery({
     queryKey: ["messages"],
     queryFn: messageService.fetchAll,
   });
 
-  const { data, isLoading, isFetching } = useQuery({
+  const {
+    data,
+    isLoading,
+    isFetching,
+    refetch: refetch,
+  } = useQuery({
     queryKey: ["stats", messages, categories],
     queryFn: async ({ queryKey }) => {
       const [, messages, categories] = queryKey;
@@ -42,6 +47,12 @@ const StatisticsPage = () => {
 
   const handleChange = (page: string) => {
     setPage(page);
+  };
+
+  const handleRefetch = async () => {
+    await refetchCategories();
+    await refetchMessages();
+    refetch();
   };
 
   return (
@@ -83,7 +94,13 @@ const StatisticsPage = () => {
               </div>
             ))}
             {page === "sub3" && <Data messages={messages} />}
-            {page === "sub4" && <Params categories={categories} />}
+            {page === "sub4" && (
+              <Params
+                categories={categories}
+                handleRefetch={handleRefetch}
+                isFetching={isFetching}
+              />
+            )}
           </div>
         )}
       </div>
