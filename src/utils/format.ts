@@ -3,6 +3,8 @@ export function computeGlobalStats(data: any) {
   let negativeTotal = 0;
   let neutralTotal = 0;
 
+  console.log(data);
+  
   Object.values(data?.resultat).forEach((evaluations: any) => {
     if (
       typeof evaluations === "object" &&
