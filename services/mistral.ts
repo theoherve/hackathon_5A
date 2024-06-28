@@ -1,5 +1,5 @@
 export const mistralService = {
-  async fetchUserAlert(message: any[]) {
+  async fetchUserAlert(message: any[]): Promise<PatientAlert | undefined> {
     
     const result = fetch("/api/mistral", {
       method: "POST",

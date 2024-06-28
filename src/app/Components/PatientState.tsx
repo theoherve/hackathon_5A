@@ -50,19 +50,19 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
       <Modal title="Patient status" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         {mutation.isPending && <div>Loading...</div>}
         {mutation.isError && <div>An error has occurred</div>}
-        {mutation.isSuccess &&
+        {mutation.isSuccess && mutation.data &&
           <div className="flex flex-col items-center gap-4">
-            <h1 className="text-lg font-bold">{mutation.data.msg.subject}</h1>
+            <h1 className="text-lg font-bold">{mutation.data.subject}</h1>
 
             <div>
               <p className="font-bold">État du patient</p>
-              <p className="text-justify">{mutation.data.msg.resume}</p>
+              <p className="text-justify">{mutation.data.resume}</p>
             </div>
 
             <div>
               <p className="font-bold">Conseil</p>
               <ul className="list-disc pl-5">
-                {mutation.data.msg.advices.map((advice: string, index: number) => (
+                {mutation.data.advices.map((advice: string, index: number) => (
                   <li key={index}>{advice}</li>
                 ))}
               </ul>
@@ -87,10 +87,10 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
               <div>
                 <p className="mt-2 font-bold">Résumé du fichier audio existant</p>
                 <div className="text-justify mt-2">
-                  {audioMutation.data.msg.resume}
+                  {audioMutation.data.resume}
                   <p className="font-bold" >Mots clés</p>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {audioMutation.data.msg.keywords.map((keyword: string, index: number) => (
+                    {audioMutation.data.keywords.map((keyword: string, index: number) => (
                       <Tag key={index}>{keyword}</Tag>
                     ))}
                   </div>
