@@ -4,6 +4,10 @@ import { ResponsivePie } from "@nivo/pie";
 import { Card, Col, Row, Statistic } from "antd";
 
 const General = ({ data }: { data: any[] }) => {
+  const totalPositive = calculerStatsGlobales(data).totalPositif;
+  const totalNegative = calculerStatsGlobales(data).totalNegatif;
+  const totalNone = calculerStatsGlobales(data).totalNone;
+
   return (
     <div className="h-full">
       <Row gutter={16}>
@@ -11,7 +15,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={calculerStatsGlobales(data).totalPositif}
+              value={totalPositive}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -23,7 +27,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={calculerStatsGlobales(data).totalNegatif}
+              value={totalNegative}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -35,7 +39,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Neutre"
-              value={calculerStatsGlobales(data).totalNone}
+              value={totalNone}
               precision={0}
               suffix="avis"
             />
@@ -46,29 +50,19 @@ const General = ({ data }: { data: any[] }) => {
         <ResponsivePie
           data={[
             {
-              id: "javaa",
-              label: "javaa",
-              value: 334,
+              id: "positive",
+              label: "Positif",
+              value: totalPositive,
             },
             {
-              id: "ruby",
-              label: "ruby",
-              value: 366,
+              id: "negative",
+              label: "Negatif",
+              value: totalNegative,
             },
             {
-              id: "erlang",
-              label: "erlang",
-              value: 189,
-            },
-            {
-              id: "stylus",
-              label: "stylus",
-              value: 354,
-            },
-            {
-              id: "sass",
-              label: "sass",
-              value: 361,
+              id: "none",
+              label: "Sans avis",
+              value: totalNone,
             },
           ]}
           margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
