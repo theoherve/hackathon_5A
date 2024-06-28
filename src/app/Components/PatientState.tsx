@@ -59,7 +59,7 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
         title={<span style={{ color: 'rgb(249, 115, 22)', fontWeight: 'bold' }}>Patient status</span>}
         open={isModalOpen}
         onOk={handleOk}
-        styles={{ body: {minHeight: record.audioPath ? 525 : 325, marginTop: -10 }}}
+        styles={{ body: { minHeight: record.audioPath ? 425 : 325, marginTop: -10 }}}
         style={{ marginTop: record.audioPath ? -50 : 0 }}
         onCancel={handleCancel}
         footer={[
@@ -70,7 +70,7 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
         width={800}
       >
         {mutation.isPending && (
-          <div className="h-full flex flex-row justify-center items-center font-bold gap-3">
+          <div className="h-full flex flex-row justify-center items-center font-bold gap-3 pt-36">
             <Spin indicator={loadingIcon} tip="Chargement en cours..." size="large" />
             Chargement ...
           </div>
