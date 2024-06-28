@@ -3,16 +3,16 @@ export function calculerStatsGlobales(data: any) {
   let totalNegatif = 0;
   let totalNone = 0;
 
-  data?.forEach((element: any) => {
-    Object.values(element).forEach((evaluations: any) => {
-      if (typeof evaluations === "object" && evaluations !== null) {
-        totalPositif += evaluations.positive || 0;
-        totalNegatif += evaluations.negative || 0;
-      }
-    });
-
-    if (element.none) {
-      totalNone += element.none;
+  Object.values(data?.resultat).forEach((evaluations: any) => {
+    if (
+      typeof evaluations === "object" &&
+      evaluations !== null &&
+      evaluations !== "none"
+    ) {
+      totalPositif += evaluations.positive || 0;
+      totalNegatif += evaluations.negative || 0;
+    } else {
+      totalNone += evaluations || 0;
     }
   });
 
