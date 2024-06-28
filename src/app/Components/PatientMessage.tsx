@@ -49,14 +49,25 @@ const PatientMessages = (props: PatientMessagesProps) => {
         </p>
       </div>
 
-      <Modal title={`${record.ipp} | ${record.firstname} ${record.lastname}`} width={650}  visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal 
+        title={`${record.ipp} | ${record.firstname} ${record.lastname}`} 
+        width={650}  
+        visible={isModalOpen} 
+        onOk={handleOk} 
+        onCancel={handleCancel}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk} style={{ backgroundColor: "rgb(249 115 22)", marginTop: '1rem' }}>
+            Retour
+          </Button>,
+        ]}
+      >
         <div className="overflow-y-auto h-96 mb-2 pr-1">
           {record.messages.map((message, index) => (
             <div key={index} className={`my-6 flex ${message.fromUser ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`flex flex-col ${message.fromUser ? 'self-start' : 'self-end'}`}
             >
-              <p className={`flex flex-col max-w-96 p-4 rounded-lg ${message.fromUser ? 'bg-orange-600 self-start' : 'bg-gray-200 self-end'} max-w-4/5`}>{message.content}</p>
+              <p className={`flex flex-col max-w-96 p-4 rounded-lg ${message.fromUser ? 'bg-orange-500 self-start' : 'bg-gray-200 self-end'} max-w-4/5`}>{message.content}</p>
               <small className={`text-gray-500 ${message.fromUser ? 'self-end' : 'self-start'} `}>
                     {message.fromUser ?  new Date(message.createdAt).toLocaleString() : `Reçu : ${new Date(message.createdAt).toLocaleString()}`}
               </small>
