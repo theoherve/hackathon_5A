@@ -1,3 +1,4 @@
+// Navigation.tsx
 import {
   DatabaseOutlined,
   DesktopOutlined,
@@ -6,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import { Categorie } from "@prisma/client";
 import type { MenuProps } from "antd";
-import { Menu } from "antd";
+import StyledMenu from "../Components/StyledMenu";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -51,7 +52,7 @@ const Navigation = ({
   ];
 
   return (
-    <Menu
+    <StyledMenu
       onClick={onClick}
       className="w-52"
       mode="vertical"

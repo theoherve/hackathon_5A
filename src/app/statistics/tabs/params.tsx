@@ -80,7 +80,7 @@ const Params = ({
       </div>
       <div className="w-full h-[2px] bg-gray-200 rounded"></div>
       <div>
-        <Button type="primary" onClick={handleRefetch} loading={isFetching}>
+        <Button type="primary" onClick={handleRefetch} loading={isFetching} style={{ backgroundColor: "rgb(249, 115, 22)" }}>
           Relancer un traitement AI
         </Button>
       </div>
