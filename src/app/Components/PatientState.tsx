@@ -54,19 +54,7 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
 
   return (
     <>
-      <Tag
-        color={record.bouleColor}
-        onClick={showModal}
-        className="min-w-16"
-        style={{
-          textAlign: "center",
-          cursor: "pointer",
-        }}
-        ref={props.index === 0 ? ref : null}
-      >
-        {text}
-      </Tag>
-
+      <Tag color={record.bouleColor} onClick={showModal} className="min-w-16 cursor-pointer" style={{textAlign: 'center'}} ref={props.index === 0 ? ref : null}>{text}</Tag>
       <Modal
         title={<span style={{ color: 'rgb(249, 115, 22)', fontWeight: 'bold' }}>Patient status</span>}
         open={isModalOpen}

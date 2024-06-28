@@ -1,10 +1,10 @@
-import { calculerStatsGlobales } from "@/utils/format";
+import { computeGlobalStats } from "@/utils/format";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
 import { Card, Col, Divider, Row, Statistic } from "antd";
 
 const General = ({ data }: { data: any[] }) => {
-  const globalStats = calculerStatsGlobales(data);
+  const globalStats = computeGlobalStats(data);
 
   return (
     <div className="h-full">
@@ -13,7 +13,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={globalStats.totalPositive}
+              value={computeGlobalStats(data).positiveTotal}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -25,7 +25,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={globalStats.totalNegative}
+              value={computeGlobalStats(data).negativeTotal}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -37,7 +37,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Neutre"
-              value={globalStats.totalNone}
+              value={computeGlobalStats(data).neutralTotal}
               precision={0}
               suffix="avis"
             />
@@ -56,17 +56,17 @@ const General = ({ data }: { data: any[] }) => {
             {
               id: "positive",
               label: "Positif",
-              value: globalStats.totalPositive,
+              value: globalStats.positiveTotal,
             },
             {
               id: "negative",
               label: "Negatif",
-              value: globalStats.totalNegative,
+              value: globalStats.negativeTotal,
             },
             {
               id: "none",
               label: "Sans avis",
-              value: globalStats.totalNone,
+              value: globalStats.neutralTotal,
             },
           ]}
           margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
