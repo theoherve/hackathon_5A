@@ -34,7 +34,7 @@ const General = ({ data }: { data: any[] }) => {
         <Col span={8}>
           <Card bordered={false}>
             <Statistic
-              title="Null"
+              title="Neutre"
               value={calculerStatsGlobales(data).totalNone}
               precision={0}
               suffix="avis"

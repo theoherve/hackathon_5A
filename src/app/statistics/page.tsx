@@ -16,15 +16,6 @@ import ServiceTemplate from "./tabs/serviceTemplate";
 const StatisticsPage = () => {
   const [page, setPage] = useState("sub1");
 
-  // const messages = [
-  //   "L operation de l oeil droit n a pas eu lieu car mon taux de Sucre etait trop eleve   il faut repoussser en September",
-  //   "Bjr je ne l'ai pas, j'appelle tous les jours. Il y a 3 germes identifiés, l'antibiogramme devrait être dispo demain. J'ai prévenu le Dr Lonca. Cdlt",
-  //   "Merci beaucoup à demain à 08h15.",
-  //   "Bonjour merci pour vos bons soins tout va bien pas de douleur l'équipe a été formidable merci",
-  //   "Bonjour je souhaiterais échanger avec un responsable digital",
-  //   "Très satisfaite, échelle de 5 , non je n'es pas demandé avoir un médecin . Merci à l'équipe",
-  // ];
-
   const { data: categories } = useQuery({
     queryKey: ["categories"],
     queryFn: categorieService.fetchAll,
