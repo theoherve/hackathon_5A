@@ -3,7 +3,7 @@ import React, {useRef, useState} from 'react';
 import {Modal, Table, Tour, Tooltip, Button} from 'antd';
 import type { TourProps } from 'antd';
 import { Spin } from "antd";
-import {ArrowUpOutlined, QuestionCircleOutlined, LoadingOutlined, SyncOutlined} from "@ant-design/icons";
+import {ArrowUpOutlined, QuestionCircleOutlined, LoadingOutlined} from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { userService } from "../../services/user";
 import PatientMessages from "./Components/PatientMessage";
@@ -71,7 +71,7 @@ const App = () => {
     setIsModalOpen(false);
   };
 
-  const columns = [
+  const columns: any = [
     {
       title: () => (
           <div className="flex items-center gap-2" ref={ref1}>
