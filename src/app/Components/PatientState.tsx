@@ -68,14 +68,14 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
       </Tag>
 
       <Modal
-        title={<span style={{ color: 'rgb(249 115 22)', fontWeight: 'bold' }}>Patient status</span>}
+        title={<span style={{ color: 'rgb(249, 115, 22)', fontWeight: 'bold' }}>Patient status</span>}
         open={isModalOpen}
         onOk={handleOk}
-        bodyStyle={{height: record.audioPath ? 525 : 325, marginTop: -10}}
-        style={{marginTop: record.audioPath ? -50 : 0}}
+        bodyStyle={{ height: record.audioPath ? 525 : 325, marginTop: -10 }}
+        style={{ marginTop: record.audioPath ? -50 : 0 }}
         onCancel={handleCancel}
         footer={[
-          <Button key="submit" type="primary" onClick={handleOk} style={{ backgroundColor: "rgb(249 115 22)" }}>
+          <Button key="submit" type="primary" onClick={handleOk} style={{ backgroundColor: "rgb(249, 115, 22)" }}>
             Retour
           </Button>,
         ]}
@@ -89,49 +89,62 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
         )}
 
         {mutation.isError && <div>An error has occurred</div>}
-        {mutation.isSuccess &&
-          <div className="flex flex-col items-center gap-4">
-            <h1 className="text-lg font-bold">{mutation.data.subject}</h1>
+        {mutation.isSuccess && mutation.data && (
+          <div className="rounded-md py-2">
+            <div className="flex flex-col">
+              <h1 className="text-lg font-bold text-center mb-3">
+                {mutation.data.subject.charAt(0).toUpperCase() + mutation.data.subject.slice(1)}
+              </h1>
 
-            <div>
-              <p className="font-bold">État du patient</p>
-              <p className="text-justify">{mutation.data.resume}</p>
-            </div>
+              <div className="rounded-sm">
+                <p className="font-bold text-base mb-2">État du patient</p>
+                <p className="text-justify">{mutation.data.resume}</p>
+              </div>
+              <Divider style={{ margin: "1rem 0", backgroundColor: "grey" }} />
 
-            <div>
-              <p className="font-bold">Conseil</p>
-              <ul className="list-disc pl-5">
-                {mutation.data.advices.map((advice: string, index: number) => (
-                  <li key={index}>{advice}</li>
-                ))}
-              </ul>
-            </div>
+              <div className="rounded-sm">
+                <p className="font-bold text-base mb-2">Conseil</p>
+                <ul className="list-disc pl-5">
+                  {mutation.data.advices.map((advice: string, index: number) => (
+                    <li key={index}>{advice}</li>
+                  ))}
+                </ul>
+              </div>
+              {record.audioPath && (
+                <Divider style={{ margin: "1rem 0", backgroundColor: "grey" }} />
+              )}
 
-            {record.audioPath && !audioMutation.data &&
-              <>
-                <p>Un fichier audio est disponible</p>
-                <Button 
-                  type="primary" 
-                  loading={audioMutation.isPending} 
-                  disabled={audioMutation.isPending} 
-                  onClick={() => audioMutation.mutate(record.audioPath)}
-                  className="mt-2"
-                >
-                  {!audioMutation.isPending ? "Transcrire l'audio" : "Chargement"}
-                </Button>
-              </>
-            }
-            {record.audioPath && audioMutation.isError && <div>An error has occurred</div>}
-            {audioMutation.isSuccess && audioMutation.data && (
-              <div>
-                <p className="mt-2 font-bold">Résumé du fichier audio existant</p>
-                <div className="text-justify mt-2">
-                  {audioMutation.data.resume}
-                  <p className="font-bold" >Mots clés</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {audioMutation.data.keywords.map((keyword: string, index: number) => (
-                      <Tag key={index}>{keyword}</Tag>
-                    ))}
+              {record.audioPath && !audioMutation.data && (
+                <div className="flex flex-col items-center justify-center my-2">
+                  <p>Un fichier audio est disponible</p>
+                  <Button
+                    type="primary"
+                    loading={audioMutation.isPending}
+                    disabled={audioMutation.isPending}
+                    style={{ backgroundColor: "rgb(249, 115, 22)" }}
+                    onClick={() => audioMutation.mutate(record.audioPath)}
+                    className="mt-2"
+                  >
+                    {!audioMutation.isPending ? "Transcrire l'audio" : "Chargement"}
+                  </Button>
+                </div>
+              )}
+              {record.audioPath && audioMutation.isError && (
+                <div>An error has occurred</div>
+              )}
+              {audioMutation.isSuccess && audioMutation.data && (
+                <div className="flex flex-col gap-2 bg-gray-50 p-2">
+                  <p className="font-bold text-base mb-2">Résumé du fichier audio existant</p>
+                  <div className="text-justify mt-2">
+                    {audioMutation.data.resume}
+                    <p className="font-bold mt-2">Mots clés</p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {audioMutation.data.keywords.map(
+                        (keyword: string, index: number) => (
+                          <Tag key={index}>{keyword}</Tag>
+                        )
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
