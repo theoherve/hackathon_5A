@@ -1,5 +1,38 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+## Liste des fonctionnalités
+
+- **Reproduction du tableau de liste des patients**
+  - HERVÉ Théo
+
+- **Style global des pages**
+  - HERVÉ Théo, KANIKAINATHAN Jerrinald
+
+- **Reproduction de la visualisation des messages**
+  - KANIKAINATHAN Jerrinald
+
+- **Tutoriel de fonctionnement du tableau via le composant Tour de Antd**
+  - HERVÉ Théo
+
+- **Utilisation d'un model de donnée Mistral en local**
+  - HARDY Alexandre
+
+- **Estimation du problème du patient ainsi que des conseils via l'IA Mistral**
+  - DE FARIA LEITE Armand
+
+- **Transcription des appels audio via l'IA OPENAI**
+  - DE FARIA LEITE Armand
+
+- **Résumé des appels audios et génération de mots-clés**
+  - DE FARIA LEITE Armand, KANIKAINATHAN Jerrinald
+
+- **Affichage d'un avis des statistiques globales sur la page statistique**
+  - DE FARIA LEITE Armand
+
+- **Diagramme circulaire avec la répartition des avis positifs et négatifs**
+  - HARDY Alexandre, DE FARIA LEITE Armand
+
 ## Getting Started
 
 First, run the development server:
