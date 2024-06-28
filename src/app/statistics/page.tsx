@@ -86,7 +86,7 @@ const StatisticsPage = () => {
         )}
         {data && categories && (
           <div className="flex-1">
-            {page === "sub1" && <General data={data} />}
+            {page === "sub1" && data && <General data={data} />}
             {categories.map((value: any) => (
               <div key={value.name}>
                 {page === value.name && <ServiceTemplate key={value.name} serviceName={value.name} data={data} />}

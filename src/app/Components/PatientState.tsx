@@ -59,7 +59,7 @@ const PatientState = React.forwardRef((props: PatientStateProps, ref: any) => {
         title={<span style={{ color: 'rgb(249, 115, 22)', fontWeight: 'bold' }}>Patient status</span>}
         open={isModalOpen}
         onOk={handleOk}
-        bodyStyle={{ height: record.audioPath ? 525 : 325, marginTop: -10 }}
+        bodyStyle={{ minHeight: record.audioPath ? 525 : 325, marginTop: -10 }}
         style={{ marginTop: record.audioPath ? -50 : 0 }}
         onCancel={handleCancel}
         footer={[
