@@ -3,7 +3,7 @@ import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
 import { Card, Col, Divider, Row, Statistic } from "antd";
 
-const General = ({ data }: { data: any[] }) => {
+const General = ({ data }: { data: Stats }) => {
   const globalStats = computeGlobalStats(data);
 
   return (

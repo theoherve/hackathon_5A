@@ -1,5 +1,5 @@
 export const statsService = {
-  async fetchStats(message: any, categories: any[]): Promise<any> {
+  async fetchStats(message: any, categories: any[]): Promise<Stats | undefined> {
     const result = await fetch("/api/stats", {
       method: "POST",
       headers: {

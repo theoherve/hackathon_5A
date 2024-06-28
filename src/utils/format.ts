@@ -56,9 +56,9 @@ export function computeServiceStats(data: any, serviceName: string) {
  * @param serviceName
  */
 export function getServiceReview(
-  data: any,
+  data: Stats,
   serviceName: string
-): string {
+){
   let serviceData = Object.entries(data?.avis).find(
     ([key, value]: any) => (key === serviceName)
   );
