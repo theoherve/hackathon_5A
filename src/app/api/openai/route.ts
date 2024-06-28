@@ -35,5 +35,5 @@ export async function POST(request: Request) {
     ],
   });  
 
-  return NextResponse.json({ msg: JSON.parse(chatResponse.choices[0].message.content) })
+  return NextResponse.json(JSON.parse(chatResponse.choices[0].message.content))
 }

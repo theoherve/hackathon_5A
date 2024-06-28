@@ -1,5 +1,5 @@
 export const openaiService = {
-  async fetchAudioTransciption(path: string) {
+  async fetchAudioTransciption(path: string): Promise<AudioTransciption | undefined>{
     const result = fetch("/api/openai", {
       method: "POST",
       headers: {
