@@ -1,9 +1,11 @@
 import { calculerStatsGlobales } from "@/utils/format";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
-import { Card, Col, Row, Statistic } from "antd";
+import { Card, Col, Divider, Row, Statistic } from "antd";
 
 const General = ({ data }: { data: any[] }) => {
+  const globalStats = calculerStatsGlobales(data);
+
   return (
     <div className="h-full">
       <Row gutter={16}>
@@ -11,7 +13,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={calculerStatsGlobales(data).totalPositif}
+              value={globalStats.totalPositive}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -23,7 +25,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={calculerStatsGlobales(data).totalNegatif}
+              value={globalStats.totalNegative}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -34,41 +36,37 @@ const General = ({ data }: { data: any[] }) => {
         <Col span={8}>
           <Card bordered={false}>
             <Statistic
-              title="Null"
-              value={calculerStatsGlobales(data).totalNone}
+              title="Neutre"
+              value={globalStats.totalNone}
               precision={0}
               suffix="avis"
             />
           </Card>
         </Col>
       </Row>
-      <div className="h-full">
+      <div className="h-full flex mt-4">
+        <div className="flex flex-col w-2/5">
+          <h3 className="text-2xl font-bold">Avis global</h3>
+          <p className="text-justify mt-2 self-center">
+            {globalStats.globalReview}
+          </p>
+        </div>
         <ResponsivePie
           data={[
             {
-              id: "javaa",
-              label: "javaa",
-              value: 334,
+              id: "positive",
+              label: "Positif",
+              value: globalStats.totalPositive,
             },
             {
-              id: "ruby",
-              label: "ruby",
-              value: 366,
+              id: "negative",
+              label: "Negatif",
+              value: globalStats.totalNegative,
             },
             {
-              id: "erlang",
-              label: "erlang",
-              value: 189,
-            },
-            {
-              id: "stylus",
-              label: "stylus",
-              value: 354,
-            },
-            {
-              id: "sass",
-              label: "sass",
-              value: 361,
+              id: "none",
+              label: "Sans avis",
+              value: globalStats.totalNone,
             },
           ]}
           margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
