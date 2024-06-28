@@ -26,6 +26,116 @@
     { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
   ],
   [
+    { "content": "Bonjour, c'est le service de messagerie de l'hôpital. Nous aimerions connaître votre opinion sur la qualité de votre chambre durant votre séjour. Pouvez-vous répondre à quelques questions ?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la propreté de votre chambre ?", "fromUser": "medecin" },
+    { "content": "Je dirais 9. La chambre était très propre.", "fromUser": "patient" },
+    { "content": "Merci. Et sur une échelle de 1 à 10, comment évalueriez-vous le confort de votre lit ?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 7. Le lit était correct mais pourrait être plus confortable.", "fromUser": "patient" },
+    { "content": "Merci pour vos retours. Avez-vous des suggestions pour améliorer votre confort pendant votre séjour ?", "fromUser": "medecin" },
+    { "content": "Peut-être des oreillers supplémentaires et une meilleure isolation sonore.", "fromUser": "patient" },
+    { "content": "Merci pour ces suggestions. Nous ferons de notre mieux pour améliorer cela. Bonne journée !", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, ici le service de messagerie de l'hôpital. Nous aimerions recueillir votre avis sur la qualité des soins que vous avez reçus. Pouvez-vous répondre à quelques questions ?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui, avec plaisir.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous l'attention et la courtoisie du personnel médical ?", "fromUser": "medecin" },
+    { "content": "Je dirais 10. Le personnel a été très attentionné et courtois.", "fromUser": "patient" },
+    { "content": "C'est excellent à entendre. Sur une échelle de 1 à 10, comment évalueriez-vous la compétence des médecins ?", "fromUser": "medecin" },
+    { "content": "9, je me suis senti entre de bonnes mains.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Avez-vous des commentaires ou des suggestions pour améliorer nos services ?", "fromUser": "medecin" },
+    { "content": "Peut-être une réduction du temps d'attente pour certaines consultations.", "fromUser": "patient" },
+    { "content": "Merci, nous prenons note de votre suggestion. Bonne journée !", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous sommes le service de messagerie de l'hôpital. Nous aimerions recueillir votre avis sur le service de restauration pendant votre séjour. Pouvez-vous répondre à quelques questions ?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui, pas de problème.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité des repas servis ?", "fromUser": "medecin" },
+    { "content": "Je dirais 6. Les repas étaient corrects mais parfois un peu fades.", "fromUser": "patient" },
+    { "content": "Merci pour votre honnêteté. Sur une échelle de 1 à 10, comment évalueriez-vous la diversité des plats proposés ?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 7. Il y avait une certaine variété mais cela pourrait être amélioré.", "fromUser": "patient" },
+    { "content": "Merci pour vos retours. Avez-vous des suggestions spécifiques pour améliorer le service de restauration ?", "fromUser": "medecin" },
+    { "content": "Peut-être offrir plus d'options végétariennes et des plats avec plus de saveur.", "fromUser": "patient" },
+    { "content": "Merci pour ces suggestions. Nous les transmettrons à l'équipe de restauration. Bonne journée !", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, ici le service de messagerie de l'hôpital. Nous souhaitons recueillir votre avis sur la communication et les informations que vous avez reçues. Pouvez-vous répondre à quelques questions ?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui, bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la clarté des informations médicales fournies par les médecins ?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 8. Les informations étaient claires mais parfois un peu techniques.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Sur une échelle de 1 à 10, comment évalueriez-vous la disponibilité des médecins pour répondre à vos questions ?", "fromUser": "medecin" },
+    { "content": "9, ils étaient généralement disponibles et à l'écoute.", "fromUser": "patient" },
+    { "content": "Merci. Avez-vous des suggestions pour améliorer la communication avec les patients ?", "fromUser": "medecin" },
+    { "content": "Peut-être utiliser un langage plus simple pour expliquer les choses.", "fromUser": "patient" },
+    { "content": "Merci pour cette suggestion. Nous travaillerons à rendre nos explications plus accessibles. Bonne journée !", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, c'est le service de messagerie de l'hôpital. Nous aimerions connaître votre avis sur les installations et l'environnement de l'hôpital. Pouvez-vous répondre à quelques questions ?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui, pas de souci.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous l'accessibilité et l'aménagement des installations ?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 8. L'accessibilité était bonne mais certains aménagements peuvent être améliorés.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Sur une échelle de 1 à 10, comment évalueriez-vous l'ambiance générale et la tranquillité de l'hôpital ?", "fromUser": "medecin" },
+    { "content": "Je dirais 7. L'ambiance était agréable mais parfois bruyante.", "fromUser": "patient" },
+    { "content": "Merci. Avez-vous des suggestions pour améliorer l'environnement de l'hôpital ?", "fromUser": "medecin" },
+    { "content": "Peut-être ajouter plus d'espaces verts et des zones de repos.", "fromUser": "patient" },
+    { "content": "Merci pour ces suggestions. Nous allons les considérer pour améliorer l'environnement de notre hôpital. Bonne journée !", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous souhaitons recueillir vos impressions sur votre séjour à l'hôpital. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité de votre chambre d'hôpital?", "fromUser": "medecin" },
+    { "content": "Je dirais 9, c'était très confortable.", "fromUser": "patient" },
+    { "content": "Merci pour votre évaluation. Avez-vous des suggestions pour améliorer votre confort?", "fromUser": "medecin" },
+    { "content": "Peut-être un peu plus de variété dans les repas.", "fromUser": "patient" },
+    { "content": "Nous prenons note de votre suggestion. Merci et bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous aimerions recueillir vos impressions sur vos soins post-opératoires. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, pas de problème.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité des soins post-opératoires?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 8. Les infirmières étaient très attentionnées.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Avez-vous des suggestions pour améliorer nos services?", "fromUser": "medecin" },
+    { "content": "Peut-être des visites plus fréquentes des médecins.", "fromUser": "patient" },
+    { "content": "Nous allons en tenir compte. Merci et bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous souhaitons recueillir vos impressions sur votre séjour global à l'hôpital. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous votre satisfaction globale?", "fromUser": "medecin" },
+    { "content": "Je dirais un 7, tout s'est bien passé.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Y a-t-il quelque chose en particulier que nous pourrions améliorer?", "fromUser": "medecin" },
+    { "content": "Peut-être la rapidité de certaines procédures administratives.", "fromUser": "patient" },
+    { "content": "Nous allons travailler sur ce point. Merci et bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous aimerions connaître votre avis sur nos services médicaux. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, avec plaisir.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité de nos services médicaux?", "fromUser": "medecin" },
+    { "content": "Je donnerais un 8. Le personnel était très professionnel.", "fromUser": "patient" },
+    { "content": "Merci pour votre évaluation. Avez-vous des suggestions pour améliorer nos services?", "fromUser": "medecin" },
+    { "content": "Peut-être une meilleure communication entre les différents services.", "fromUser": "patient" },
+    { "content": "Nous allons prendre cela en considération. Merci et bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
+    { "content": "Bonjour, nous aimerions recueillir vos impressions sur les soins infirmiers que vous avez reçus. Pouvez-vous répondre à quelques questions?", "fromUser": "medecin" },
+    { "content": "Bonjour, oui bien sûr.", "fromUser": "patient" },
+    { "content": "Sur une échelle de 1 à 10, comment évalueriez-vous la qualité des soins infirmiers?", "fromUser": "medecin" },
+    { "content": "Je dirais un 9. Les infirmières étaient très attentionnées et compétentes.", "fromUser": "patient" },
+    { "content": "Merci pour votre retour. Y a-t-il quelque chose en particulier que nous pourrions améliorer?", "fromUser": "medecin" },
+    { "content": "Rien de particulier, j'étais très satisfait.", "fromUser": "patient" },
+    { "content": "Nous sommes heureux de l'entendre. Merci et bonne journée!", "fromUser": "medecin" },
+    { "content": "Merci, bonne journée à vous aussi.", "fromUser": "patient" }
+  ],
+  [
       { "content": "Bonjour Docteur, j'ai des maux de tête persistants.", "fromUser": "patient" },
       { "content": "Bonjour, depuis combien de temps avez-vous ces maux de tête ?", "fromUser": "medecin" },
       { "content": "Depuis trois jours maintenant.", "fromUser": "patient" },
