@@ -1,6 +1,6 @@
 "use client";
 import React, {useRef, useState} from 'react';
-import {Modal, Table, Tour, Tooltip} from 'antd';
+import {Modal, Table, Tour, Tooltip, Button} from 'antd';
 import type { TourProps } from 'antd';
 import { Spin } from "antd";
 import {ArrowUpOutlined, QuestionCircleOutlined, LoadingOutlined, SyncOutlined} from "@ant-design/icons";
@@ -26,12 +26,14 @@ const App = () => {
       title: 'Tutoriel',
       description: 'La colonne "Catégorie" permet de visualiser rapidement l\'état du patient.',
       placement: 'right',
+      nextButtonProps: { style: { backgroundColor: 'rgb(249, 115, 22)' } },
       target: () => ref1.current,
     },
     {
       title: 'La catégorie',
       description: 'Le code couleur correspond à une catégorie de problème. Au click, une modale s\'ouvre avec plus de détails.',
       placement: 'right',
+      nextButtonProps: { style: { backgroundColor: 'rgb(249, 115, 22)' } },
       target: () => ref2.current,
     },
     {
@@ -39,14 +41,14 @@ const App = () => {
       description: 'Dans cette modal, vous pouvez voir le statut du patient et des informations supplémentaires comme des conseils pour aider au mieux le patient.',
       placement: 'bottom',
       target: null,
+      nextButtonProps: { style: { backgroundColor: 'rgb(249, 115, 22)' } },
       cover: (
-        <ArrowUpOutlined className="absolute -top-8" />
+        <ArrowUpOutlined className="absolute -top-8" style={{ backgroundColor: 'rgb(249, 115, 22)', color: 'white', padding: 5, borderRadius: '50%' }} />
       )
     },
   ];
 
   const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-  const syncIcon = <SyncOutlined style={{ fontSize: 24 }} spin />;
 
   const handleStepChange = (current: number) => {
     if (current === 2) {
@@ -163,10 +165,21 @@ const App = () => {
           </span>
         )}
         mask={!isTourAtStep3}
-        type={ isTourAtStep3 ? 'primary' : 'neutral'}
       />
 
-      <Modal title="Patient status" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal
+        title={<span style={{ color: 'rgb(249, 115, 22)', fontWeight: 'bold' }}>Patient status</span>}
+        open={isModalOpen}
+        onOk={handleOk}
+
+        onCancel={handleCancel}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk} style={{ backgroundColor: "rgb(249, 115, 22)" }}>
+            Retour
+          </Button>,
+        ]}
+        width={800}
+      >
         <div className="flex flex-col">
           <h1 className="text-lg font-bold">Catégorie</h1>
 
