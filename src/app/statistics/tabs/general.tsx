@@ -1,12 +1,10 @@
 import { calculerStatsGlobales } from "@/utils/format";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
-import { Card, Col, Row, Statistic } from "antd";
+import { Card, Col, Divider, Row, Statistic } from "antd";
 
 const General = ({ data }: { data: any[] }) => {
-  const totalPositive = calculerStatsGlobales(data).totalPositif;
-  const totalNegative = calculerStatsGlobales(data).totalNegatif;
-  const totalNone = calculerStatsGlobales(data).totalNone;
+  const globalStats = calculerStatsGlobales(data);
 
   return (
     <div className="h-full">
@@ -15,7 +13,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={totalPositive}
+              value={globalStats.totalPositive}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -27,7 +25,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={totalNegative}
+              value={globalStats.totalNegative}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -39,30 +37,36 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Neutre"
-              value={totalNone}
+              value={globalStats.totalNone}
               precision={0}
               suffix="avis"
             />
           </Card>
         </Col>
       </Row>
-      <div className="h-full">
+      <div className="h-full flex mt-4">
+        <div className="flex flex-col w-2/5">
+          <h3 className="text-2xl font-bold">Avis global</h3>
+          <p className="text-justify mt-2 self-center">
+            {globalStats.globalReview}
+          </p>
+        </div>
         <ResponsivePie
           data={[
             {
               id: "positive",
               label: "Positif",
-              value: totalPositive,
+              value: globalStats.totalPositive,
             },
             {
               id: "negative",
               label: "Negatif",
-              value: totalNegative,
+              value: globalStats.totalNegative,
             },
             {
               id: "none",
               label: "Sans avis",
-              value: totalNone,
+              value: globalStats.totalNone,
             },
           ]}
           margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

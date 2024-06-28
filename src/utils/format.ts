@@ -1,21 +1,22 @@
 export function calculerStatsGlobales(data: any) {
-  let totalPositif = 0;
-  let totalNegatif = 0;
+  let totalPositive = 0;
+  let totalNegative = 0;
   let totalNone = 0;
 
+  console.log(data);
+  
   Object.values(data?.resultat).forEach((evaluations: any) => {
     if (
       typeof evaluations === "object" &&
       evaluations !== null &&
       evaluations !== "none"
     ) {
-      totalPositif += evaluations.positive || 0;
-      totalNegatif += evaluations.negative || 0;
+      totalPositive += evaluations.positive || 0;
+      totalNegative += evaluations.negative || 0;
     } else {
       totalNone += evaluations || 0;
     }
   });
 
-  console.log(totalPositif, totalNegatif, totalNone);
-  return { totalPositif, totalNegatif, totalNone };
+  return { totalPositive, totalNegative, totalNone, globalReview: data?.avis.global};
 }
