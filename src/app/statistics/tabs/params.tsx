@@ -1,9 +1,17 @@
 import { Categorie } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
-import { Select } from "antd";
+import { Button, Select } from "antd";
 import { categorieService } from "../../../../services/categorie";
 
-const Params = ({ categories }: { categories: Categorie[] }) => {
+const Params = ({
+  categories,
+  handleRefetch,
+  isFetching,
+}: {
+  categories: Categorie[];
+  handleRefetch: () => void;
+  isFetching: boolean;
+}) => {
   const options =
     categories?.map((value: Categorie) => {
       return {
@@ -53,9 +61,10 @@ const Params = ({ categories }: { categories: Categorie[] }) => {
     <div className="flex flex-col space-y-6">
       <div className="mb-2">
         <label>Services à analyser</label>
-        <p className="text-gray-400 italic mb-4">
+        <p className="text-gray-400 italic mb-4 text-sm">
           Selectionner les services que vous souhaitez analyser par
-          l&apos;intelligence artificielle.
+          l&apos;intelligence artificielle. Vous pouvez ajouter de nouveaux
+          service en tapant un nouveau service et appuyant sur la touche entrée
         </p>
         <Select
           mode="tags"
@@ -70,6 +79,11 @@ const Params = ({ categories }: { categories: Categorie[] }) => {
         />
       </div>
       <div className="w-full h-[2px] bg-gray-200 rounded"></div>
+      <div>
+        <Button type="primary" onClick={handleRefetch} loading={isFetching}>
+          Relancer un traitement AI
+        </Button>
+      </div>
     </div>
   );
 };

@@ -12,16 +12,6 @@ const columns: TableProps<DataType>["columns"] = [
     dataIndex: "content",
     key: "content",
   },
-  {
-    title: "Categorie(s)",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Positif / Negatif",
-    dataIndex: "address",
-    key: "address",
-  },
 ];
 
 const Data = ({ messages }: { messages: DataType[] }) => {

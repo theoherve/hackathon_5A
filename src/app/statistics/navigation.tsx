@@ -40,7 +40,7 @@ const Navigation = ({
     },
     {
       key: "sub3",
-      label: "Données",
+      label: "Données analysées",
       icon: <DatabaseOutlined />,
     },
     {
