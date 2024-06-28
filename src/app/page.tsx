@@ -2,7 +2,8 @@
 import React, {useRef, useState} from 'react';
 import {Modal, Table, Tour, Tooltip} from 'antd';
 import type { TourProps } from 'antd';
-import {ArrowUpOutlined, QuestionCircleOutlined} from "@ant-design/icons";
+import { Spin } from "antd";
+import {ArrowUpOutlined, QuestionCircleOutlined, LoadingOutlined, SyncOutlined} from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { userService } from "../../services/user";
 import PatientMessages from "./Components/PatientMessage";
@@ -43,6 +44,9 @@ const App = () => {
       )
     },
   ];
+
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+  const syncIcon = <SyncOutlined style={{ fontSize: 24 }} spin />;
 
   const handleStepChange = (current: number) => {
     if (current === 2) {
@@ -107,7 +111,12 @@ const App = () => {
   ];
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex flex-row h-96 justify-center items-center font-bold gap-3">
+        <Spin indicator={loadingIcon} tip="Chargement en cours..." size="large" />
+        Chargement ...
+      </div>
+    );
   }
 
   if (error) {
