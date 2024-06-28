@@ -1,4 +1,4 @@
-import { calculerStatsGlobales } from "@/utils/format";
+import { computeGlobalStats } from "@/utils/format";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
 import { Card, Col, Row, Statistic } from "antd";
@@ -11,7 +11,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={calculerStatsGlobales(data).totalPositif}
+              value={computeGlobalStats(data).positiveTotal}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -23,7 +23,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={calculerStatsGlobales(data).totalNegatif}
+              value={computeGlobalStats(data).negativeTotal}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -35,7 +35,7 @@ const General = ({ data }: { data: any[] }) => {
           <Card bordered={false}>
             <Statistic
               title="Neutre"
-              value={calculerStatsGlobales(data).totalNone}
+              value={computeGlobalStats(data).neutralTotal}
               precision={0}
               suffix="avis"
             />

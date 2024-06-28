@@ -1,12 +1,12 @@
 "use client";
 
-import { Message } from "@prisma/client";
-import { useQuery } from "@tanstack/react-query";
-import { Select, Skeleton, Spin } from "antd";
-import { useState } from "react";
-import { categorieService } from "../../../services/categorie";
-import { messageService } from "../../../services/message";
-import { statsService } from "../../../services/stats";
+import {Message} from "@prisma/client";
+import {useQuery} from "@tanstack/react-query";
+import {Select, Skeleton, Spin} from "antd";
+import {useState} from "react";
+import {categorieService} from "../../../services/categorie";
+import {messageService} from "../../../services/message";
+import {statsService} from "../../../services/stats";
 import Navigation from "./navigation";
 import Data from "./tabs/data";
 import General from "./tabs/general";
@@ -30,11 +30,10 @@ const StatisticsPage = () => {
     queryKey: ["stats", messages, categories],
     queryFn: async ({ queryKey }) => {
       const [, messages, categories] = queryKey;
-      const result = await statsService.fetchStats(
+      return await statsService.fetchStats(
         messages.map((msg: Message) => msg.content),
         categories
       );
-      return result;
     },
     enabled: !!categories && !!messages,
     refetchOnWindowFocus: false,
@@ -79,7 +78,7 @@ const StatisticsPage = () => {
             {page === "sub1" && <General data={data} />}
             {categories.map((value: any) => (
               <div key={value.name}>
-                {page === value.name && <ServiceTemplate key={value.name} />}
+                {page === value.name && <ServiceTemplate key={value.name} serviceName={value.name} data={data} />}
               </div>
             ))}
             {page === "sub3" && <Data messages={messages} />}
