@@ -4,7 +4,7 @@ import { ResponsivePie } from "@nivo/pie";
 import { Card, Col, Divider, Row, Statistic } from "antd";
 
 const General = ({ data }: { data: any[] }) => {
-  const globalStats = calculerStatsGlobales(data);
+  const globalStats = computeGlobalStats(data);
 
   return (
     <div className="h-full">
@@ -56,17 +56,17 @@ const General = ({ data }: { data: any[] }) => {
             {
               id: "positive",
               label: "Positif",
-              value: globalStats.totalPositive,
+              value: globalStats.positiveTotal,
             },
             {
               id: "negative",
               label: "Negatif",
-              value: globalStats.totalNegative,
+              value: globalStats.negativeTotal,
             },
             {
               id: "none",
               label: "Sans avis",
-              value: globalStats.totalNone,
+              value: globalStats.neutralTotal,
             },
           ]}
           margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
