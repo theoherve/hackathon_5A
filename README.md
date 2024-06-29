@@ -6,6 +6,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - **Reproduction du tableau de liste des patients**
   - HERVÉ Théo
 
+- **Création d'une nouvelle colonne pour modifier les pastilles de couleurs et afficher les informations ajoutées**
+  - HERVÉ Théo
+
+- **Création de la modal pour présenter les informations propres au patient**
+  - HERVÉ Théo
+
 - **Style global des pages**
   - HERVÉ Théo, KANIKAINATHAN Jerrinald
 
