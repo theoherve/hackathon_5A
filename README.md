@@ -1,43 +1,79 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-
 ## Liste des fonctionnalités
 
 - **Reproduction du tableau de liste des patients**
+
   - HERVÉ Théo
 
 - **Création d'une nouvelle colonne pour modifier les pastilles de couleurs et afficher les informations ajoutées**
+
   - HERVÉ Théo
 
 - **Création de la modal pour présenter les informations propres au patient**
+
   - HERVÉ Théo
 
 - **Style global des pages**
+
   - HERVÉ Théo, KANIKAINATHAN Jerrinald
 
 - **Reproduction de la visualisation des messages**
+
   - KANIKAINATHAN Jerrinald
 
-- **Tutoriel de fonctionnement du tableau via le composant Tour de Antd**
+- **Tutoriel de fonctionnement du tableau**
+
   - HERVÉ Théo
 
 - **Utilisation d'un model de donnée Mistral en local**
+
   - HARDY Alexandre
 
 - **Estimation du problème du patient ainsi que des conseils via l'IA Mistral**
+
   - DE FARIA LEITE Armand
 
 - **Transcription des appels audio via l'IA OPENAI**
+
   - DE FARIA LEITE Armand
 
 - **Résumé des appels audios et génération de mots-clés**
+
   - DE FARIA LEITE Armand, KANIKAINATHAN Jerrinald
 
 - **Affichage d'un avis des statistiques globales sur la page statistique**
+
   - DE FARIA LEITE Armand
 
 - **Diagramme circulaire avec la répartition des avis positifs et négatifs**
+
   - HARDY Alexandre, DE FARIA LEITE Armand
+
+- **Statistiques globale positif, négatif et neutre**
+
+  - HARDY Alexandre, HERVÉ Théo
+
+- **Paramètrage dynamique des services sur la page paramètre des statistique**
+
+  - HARDY Alexandre
+
+- **Optimisation de l'envoie de message uniquement une fois avec enregistrement de version sur la page statistique**
+
+  - HARDY Alexandre
+
+- **Comparaion des versions de statistiques**
+
+  - HARDY Alexandre
+
+- **Gestion de la détection d'un nouveau message pour proposer une nouvelle version de statistique**
+  - HARDY Alexandre
+- **Gestion de la data et database**
+
+  - PIGEAU Noé
+
+- **Cohérence des donnée utilisateurs**
+  - PIGEAU Noé
 
 ## Getting Started
 
