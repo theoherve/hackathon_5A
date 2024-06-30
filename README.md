@@ -1,4 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Lancement du projet
+
+1. Setup les keys API dans un fichier .env.local
+
+2. Lancement de docker avec postgresql :
+
+```bash
+docker compose up -d
+```
+
+3. Migration prisma :
+
+```bash
+npx prisma db push --force-reset
+```
+
+4. Chargement des fausse données :
+
+```bash
+node scripts/seed.js
+```
+
+5. Lancement de l'aplication NextJS
+
+````bash
+npm run dev
+```
+
+## Equipe - pseudo github
+
+- Jerrinald KANIKAINATHAN / Jerrinald
+- Armand DE FARIA LEITE / Iz0nite
+- Théo HERVÉ / theoherve
+- Alexandre Hardy / AlexandreHardyy
+- Noé PIGEAU / NoePigeau
 
 ## Liste des fonctionnalités
 
@@ -87,7 +121,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
