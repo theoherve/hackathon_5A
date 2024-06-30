@@ -1,5 +1,7 @@
+import { Message } from "@prisma/client";
+
 export const messageService = {
-  async fetchAll() {
+  async fetchAll(): Promise<Message[]> {
     const result = fetch("/api/message")
       .then((res) => res.json())
       .catch((err) => {

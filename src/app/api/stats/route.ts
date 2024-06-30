@@ -13,7 +13,7 @@ export async function POST(request: Request) {
           avec comme clefs chaque categories (donc rajoute bien toute les catégories présentent), et en valeur un objet avec deux valeurs, nommé 'positive' et 'negative', 
           fait une catégorie spéciale nommé 'none' pour ce qui ne rentre dans aucune catégorie. Dans la categorie 'none', 
           tu mettras une seule valeur, directement la valeur en nombre. 
-          La deuxième clef est 'avis', qui est un resume de l'analyse que tu as faite pour chaque categories en fonction des messages mais il y a aussi un attribut global pour donner un avis générale et n'hésite pas à bien détailler sur ce dernier. 
+          La deuxième clef est 'avis', qui est un resume de l'analyse que tu as faite pour chaque categories en fonction des messages, n'hésite pas à bien détailler, mais il y a aussi un attribut global pour donner un avis générale et n'hésite pas à bien détailler sur ce dernier. 
           Ne fourni jamais d'autre contexte que l'objet json. Pas de parole, je dois pouvoir parser ton message.`;
 
   const chatResponse = await client.chat({

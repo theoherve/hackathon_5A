@@ -1,62 +1,72 @@
 "use client";
 
-import {Message} from "@prisma/client";
-import {useQuery} from "@tanstack/react-query";
-import {Select, Skeleton, Spin} from "antd";
-import {useState} from "react";
-import {categorieService} from "../../../services/categorie";
-import {messageService} from "../../../services/message";
-import {statsService} from "../../../services/stats";
+import { Statistic } from "@prisma/client";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { Alert, Button, Select } from "antd";
+import { useState } from "react";
+import { categorieService } from "../../../services/categorie";
+import { messageService } from "../../../services/message";
+import { statisticService } from "../../../services/statistic";
 import Navigation from "./navigation";
-import Data from "./tabs/data";
+import Compare from "./tabs/compare";
 import General from "./tabs/general";
 import Params from "./tabs/params";
 import ServiceTemplate from "./tabs/serviceTemplate";
 
 const StatisticsPage = () => {
   const [page, setPage] = useState("sub1");
+  const [selectedStatistic, setSelectedStatistic] = useState<Statistic>();
+  const [open, setOpen] = useState(true);
 
-  const { data: categories, refetch: refetchCategories } = useQuery({
-    queryKey: ["categories"],
-    queryFn: categorieService.fetchAll,
+  const { data: statistics, refetch: refetchStatistics } = useQuery({
+    queryKey: ["statistics"],
+    queryFn: statisticService.fetchAll,
+    refetchOnWindowFocus: false,
   });
 
-  const { data: messages, refetch: refetchMessages } = useQuery({
+  const { data: messages } = useQuery({
     queryKey: ["messages"],
     queryFn: messageService.fetchAll,
+    refetchOnWindowFocus: false,
   });
 
-  const {
-    data,
-    isLoading,
-    isFetching,
-    refetch: refetch,
-  } = useQuery({
-    queryKey: ["stats", messages, categories],
-    queryFn: async ({ queryKey }) => {
-      const [, messages, categories] = queryKey;
-      return await statsService.fetchStats(
-        messages.map((msg: Message) => msg.content),
-        categories
-      );
-    },
-    enabled: !!categories && !!messages,
+  const { data: categories } = useQuery({
+    queryKey: ["categories"],
+    queryFn: categorieService.fetchAll,
     refetchOnWindowFocus: false,
+  });
+
+  const mutationCreateStatistic = useMutation({
+    mutationFn: statisticService.create,
   });
 
   const handleChange = (page: string) => {
     setPage(page);
   };
 
-  const handleRefetch = async () => {
-    await refetchCategories();
-    await refetchMessages();
-    refetch();
-  };
-
   return (
     <div className="h-[500px]">
-      <div className="flex justify-between items-center">
+      {messages && messages.length > 0 && open && (
+        <Alert
+          message="Information"
+          description="Nouveaux messages disponibles - lancer une nouvelle analyse IA ?"
+          type="info"
+          action={
+            <Button
+              onClick={async () => {
+                await mutationCreateStatistic.mutateAsync();
+                setOpen(false);
+                refetchStatistics();
+              }}
+              loading={mutationCreateStatistic.isPending}
+            >
+              Lancer l&apos;analyse
+            </Button>
+          }
+          showIcon
+        />
+      )}
+      <div className="flex justify-between items-center mt-4">
         <div className="flex flex-col">
           <h1 className="text-xl">Statistiques</h1>
           <p className="text-sm text-gray-400">
@@ -64,41 +74,48 @@ const StatisticsPage = () => {
             artificielle
           </p>
         </div>
-        {isFetching && <Spin />}
 
         <Select
-          className="w-40"
-          defaultValue="7d"
-          options={[
-            { value: "7d", label: "7 jours" },
-            { value: "14d", label: "14 jours" },
-            { value: "1m", label: "1 mois" },
-            { value: "all", label: "Depuis le début" },
-          ]}
+          className="w-96"
+          options={statistics?.map((value: Statistic) => {
+            const date = new Date(value.createdAt);
+            return {
+              label: date.toLocaleString("fr-FR"),
+              value: value.id,
+            };
+          })}
+          onChange={(value: number) => {
+            const selected = statistics?.find(
+              (val: Statistic) => val.id === value
+            );
+            if (!selected) return;
+
+            setSelectedStatistic({
+              ...selected,
+              statistics: JSON.parse(selected?.statistics),
+            });
+          }}
         />
       </div>
       <div className="flex gap-4 mt-8 h-full">
         <Navigation handleChange={handleChange} categories={categories} />
-        {isLoading && (
-          <div className="w-full h-full">
-            <Skeleton.Button active={true} size={"large"} block={true} />
-          </div>
-        )}
-        {data && categories && (
+        {statistics && categories && (
           <div className="flex-1">
-            {page === "sub1" && data && <General data={data} />}
+            {page === "sub1" && <General statistics={selectedStatistic} />}
             {categories.map((value: any) => (
               <div key={value.name}>
-                {page === value.name && <ServiceTemplate key={value.name} serviceName={value.name} data={data} />}
+                {page === value.name && (
+                  <ServiceTemplate
+                    key={value.name}
+                    serviceName={value.name}
+                    statistics={selectedStatistic}
+                  />
+                )}
               </div>
             ))}
-            {page === "sub3" && <Data messages={messages} />}
+            {page === "sub3" && <Params categories={categories} />}
             {page === "sub4" && (
-              <Params
-                categories={categories}
-                handleRefetch={handleRefetch}
-                isFetching={isFetching}
-              />
+              <Compare statistics={statistics} statistic={selectedStatistic} />
             )}
           </div>
         )}

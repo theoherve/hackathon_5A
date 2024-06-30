@@ -21,19 +21,21 @@ model User {
   ipp           String
   dateNaissance String
   medecin       String
-  audioPath     String? 
+  audioPath     String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
 
 model Message {
-  id        Int      @id @default(autoincrement())
-  content   String
-  fromUser  Boolean
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User?    @relation(fields: [userId], references: [id])
-  userId    Int?
+  id          Int        @id @default(autoincrement())
+  content     String
+  fromUser    Boolean
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  user        User?      @relation(fields: [userId], references: [id])
+  userId      Int?
+  statistic   Statistic? @relation(fields: [statisticId], references: [id])
+  statisticId Int?
 }
 
 model Categorie {
@@ -42,4 +44,11 @@ model Categorie {
   isActive  Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Statistic {
+  id         Int       @id @default(autoincrement())
+  messages   Message[]
+  statistics String
+  createdAt  DateTime  @default(now())
 }

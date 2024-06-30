@@ -1,7 +1,7 @@
 import {
-  DatabaseOutlined,
   DesktopOutlined,
   ProductOutlined,
+  ScanOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import { Categorie } from "@prisma/client";
@@ -40,13 +40,13 @@ const Navigation = ({
     },
     {
       key: "sub3",
-      label: "Données analysées",
-      icon: <DatabaseOutlined />,
+      label: "Paramètres",
+      icon: <SettingOutlined />,
     },
     {
       key: "sub4",
-      label: "Paramètres",
-      icon: <SettingOutlined />,
+      label: "Comparer",
+      icon: <ScanOutlined />,
     },
   ];
 

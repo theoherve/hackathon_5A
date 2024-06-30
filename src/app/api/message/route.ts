@@ -2,11 +2,12 @@ import { NextResponse } from "next/server";
 import { prisma } from "../../../../services/prisma";
 
 export async function GET(request: Request) {
-  const users = await prisma.message.findMany({
+  const messages = await prisma.message.findMany({
     where: {
       fromUser: true,
+      statisticId: null,
     },
   });
 
-  return NextResponse.json(users);
+  return NextResponse.json(messages);
 }

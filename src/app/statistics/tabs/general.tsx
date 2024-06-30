@@ -1,10 +1,18 @@
 import { computeGlobalStats } from "@/utils/format";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { ResponsivePie } from "@nivo/pie";
-import { Card, Col, Divider, Row, Statistic } from "antd";
+import { Statistic as StatisticType } from "@prisma/client";
+import { Card, Col, Row, Statistic } from "antd";
 
-const General = ({ data }: { data: Stats }) => {
-  const globalStats = computeGlobalStats(data);
+const General = ({ statistics }: { statistics?: StatisticType }) => {
+  if (!statistics)
+    return (
+      <div>
+        Veuillez choisir une date de statistique pour voir les informations
+      </div>
+    );
+
+  const globalStats = computeGlobalStats(statistics.statistics);
 
   return (
     <div className="h-full">
@@ -13,7 +21,7 @@ const General = ({ data }: { data: Stats }) => {
           <Card bordered={false}>
             <Statistic
               title="Positif"
-              value={computeGlobalStats(data).positiveTotal}
+              value={globalStats.positiveTotal}
               precision={0}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -25,7 +33,7 @@ const General = ({ data }: { data: Stats }) => {
           <Card bordered={false}>
             <Statistic
               title="Negatif"
-              value={computeGlobalStats(data).negativeTotal}
+              value={globalStats.negativeTotal}
               precision={0}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}
@@ -37,7 +45,7 @@ const General = ({ data }: { data: Stats }) => {
           <Card bordered={false}>
             <Statistic
               title="Neutre"
-              value={computeGlobalStats(data).neutralTotal}
+              value={globalStats.neutralTotal}
               precision={0}
               suffix="avis"
             />

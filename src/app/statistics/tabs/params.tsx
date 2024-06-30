@@ -1,17 +1,9 @@
 import { Categorie } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
-import { Button, Select } from "antd";
+import { Select } from "antd";
 import { categorieService } from "../../../../services/categorie";
 
-const Params = ({
-  categories,
-  handleRefetch,
-  isFetching,
-}: {
-  categories: Categorie[];
-  handleRefetch: () => void;
-  isFetching: boolean;
-}) => {
+const Params = ({ categories }: { categories: Categorie[] }) => {
   const options =
     categories?.map((value: Categorie) => {
       return {
@@ -79,11 +71,6 @@ const Params = ({
         />
       </div>
       <div className="w-full h-[2px] bg-gray-200 rounded"></div>
-      <div>
-        <Button type="primary" onClick={handleRefetch} loading={isFetching}>
-          Relancer un traitement AI
-        </Button>
-      </div>
     </div>
   );
 };
